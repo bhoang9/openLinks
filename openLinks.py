@@ -1,4 +1,5 @@
-#TODO:Make into an exe, maybe find a better reg expr for URLs
+#TODO: make it so that script works properly even when no browser window
+#      is initially open
 
 import webbrowser, sys, os, re
 
@@ -12,6 +13,12 @@ lines = f.readlines()
 for line in lines:
     line_links = regex_link.findall(line)
     links.extend(line_links)
+
+#if("https://" not in links[0]):
+#    links[0] = "https://" + links[0]
+#    webbrowser.open_new(links[0])
+#else:
+#    webbrowser.open_new(links[0])
 
 for link in links:
     if "https://" not in link:
